@@ -20,12 +20,12 @@
             }
           },
           {
-            "id": "19946216e6bce7c7",
+            "id": "85ffde9bccfdf7b6",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_posts/2019-07-06-htb-writeup-hackback.md",
+                "file": "_posts/2021-05-22-htb-writeup-delivery.md",
                 "mode": "source",
                 "source": false
               }
@@ -172,22 +172,22 @@
   },
   "active": "a3f90bb9b3d1debc",
   "lastOpenFiles": [
+    "_posts/2021-05-22-htb-writeup-delivery.md",
+    "_posts/2019-06-29-htb-writeup-netmon.md",
     "_posts/2019-07-06-htb-writeup-hackback.md",
     "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
-    "_posts/2019-06-29-htb-writeup-netmon.md",
+    "assets/images/Pasted_image_20240628225608.png",
+    "assets/images/Pasted_image_20240628225553.png",
+    "assets/images/Pasted_image_20240628225543.png",
+    "assets/images/Pasted_image_20240628225522.png",
+    "assets/images/Pasted_image_20240628225507.png",
+    "assets/images/Pasted_image_20240628225442.png",
+    "assets/images/Pasted_image_20240628225430.png",
+    "assets/images/Pasted_image_20240628225405.png",
+    "assets/images/Pasted_image_20240628225347.png",
+    "assets/images/Pasted_image_20240628225329.png",
     "_posts/2019-07-13-htb-writeup-friendzone.md",
     "_posts/2018-12-12-custom-crypter.md",
-    "assets/images/avatar.gif",
-    "assets/images/Pasted image 20240628225207.png",
-    "assets/images/Pasted image 20240628225608.png",
-    "assets/images/Pasted image 20240628225553.png",
-    "assets/images/Pasted image 20240628225543.png",
-    "assets/images/Pasted image 20240628225522.png",
-    "assets/images/Pasted image 20240628225507.png",
-    "assets/images/Pasted image 20240628225442.png",
-    "assets/images/Pasted image 20240628225430.png",
-    "assets/images/Pasted image 20240628225405.png",
-    "_posts/2021-05-22-htb-writeup-delivery.md",
     "_posts/2020-01-25-htb-writeup-ai.md"
   ]
 }
