@@ -294,6 +294,24 @@
   height: auto;  /* Mantiene la proporción original del contenido */
   /*transform: scale(1);  /* Ajusta la escala del contenido del contenedor */
   /*transform-origin: top left;  /* Establece el punto de origen de la escala en la esquina superior izquierda */
+    display: table-cell;
+    vertical-align: top;
+    padding-left: 15px;
+    padding-right: 25px;
+    line-height: 1;
+  
+    @include breakpoint($large) {
+      display: block;
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 }
 
 
