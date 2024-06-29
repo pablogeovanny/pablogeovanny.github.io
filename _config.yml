@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Pablo Flores"
   avatar           : "/assets/images/avatar.gif"
-  bio              : "Blog about Cibersecurity, pentesting, CTFs and more."
+  bio              : "Blog about cibersecurity,<b>pentesting, CTFs<b>and more."
   location         : "Ecuador"
   email            : "pgfloresm@protonmail.com"
   uri              :
