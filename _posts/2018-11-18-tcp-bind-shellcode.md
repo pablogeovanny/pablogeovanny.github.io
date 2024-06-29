@@ -1,7 +1,7 @@
 ---
 layout: single
 title: TCP bind shellcode
-date: 2018-11-18
+date: 2018-12-18
 classes: wide
 header:
   teaser: /assets/images/slae32.png
@@ -11,7 +11,9 @@ categories:
 tags:
   - slae
   - assembly
-  - tcp bind shellcode
+  - tcp
+  - bind
+  - shellcode
 ---
 A bind shellcode listens on a socket, waiting for a connection to be made to the server then executes arbitrary code, typically spawning shell for the connecting user. This post demonstrates a simple TCP bind shellcode that executes a shell.
 

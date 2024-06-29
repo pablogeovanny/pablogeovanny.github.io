@@ -1,0 +1,193 @@
+{
+  "main": {
+    "id": "2f1c46bb39765eb5",
+    "type": "split",
+    "children": [
+      {
+        "id": "7e25bfc790446004",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a3f90bb9b3d1debc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "19946216e6bce7c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2019-07-06-htb-writeup-hackback.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4d38ecefd9850d9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2019-06-29-htb-writeup-netmon.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5785c1c54c0a2216",
+    "type": "split",
+    "children": [
+      {
+        "id": "47d4d2420a6b104c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "21acb979556df678",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "54a743c774768d77",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "delivery",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7ef3e256bcb27d7e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c8b1fcc363540c58",
+    "type": "split",
+    "children": [
+      {
+        "id": "ba2f1d26038222f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f8193786d4976b25",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c502be1d329a9aa0",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "33e1100760a45cf7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "0e404366b24bd032",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "a3f90bb9b3d1debc",
+  "lastOpenFiles": [
+    "_posts/2019-07-06-htb-writeup-hackback.md",
+    "_posts/2019-06-29-htb-writeup-netmon.md",
+    "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+    "_posts/2019-07-13-htb-writeup-friendzone.md",
+    "_posts/2018-12-12-custom-crypter.md",
+    "assets/images/avatar.gif",
+    "assets/images/Pasted image 20240628225207.png",
+    "assets/images/Pasted image 20240628225608.png",
+    "assets/images/Pasted image 20240628225553.png",
+    "assets/images/Pasted image 20240628225543.png",
+    "assets/images/Pasted image 20240628225522.png",
+    "assets/images/Pasted image 20240628225507.png",
+    "assets/images/Pasted image 20240628225442.png",
+    "assets/images/Pasted image 20240628225430.png",
+    "assets/images/Pasted image 20240628225405.png",
+    "_posts/2021-05-22-htb-writeup-delivery.md",
+    "_posts/2020-01-25-htb-writeup-ai.md"
+  ]
+}

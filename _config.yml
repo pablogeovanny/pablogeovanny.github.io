@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Ge0Blog"
 title_separator          : "-"
 name                     : "Pablo Flores"
-description              : "Posts about security, CTFs and networking"
+description              : "Blog about Cibersecurity, pentesting, CTFs and more"
 url                      : "https://pablogeovanny.github.io/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "pablogeovanny/pablogeovanny.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -103,7 +103,7 @@ analytics:
 author:
   name             : "Pablo Flores"
   avatar           : "/assets/images/avatar.gif"
-  bio              : "Blog about Cibersecurity, pentesting<br>CTF and more"
+  bio              : "Blog about Cibersecurity, pentesting, CTFs and more."
   location         : "Ecuador"
   email            : "pgfloresm@protonmail.com"
   uri              : 
