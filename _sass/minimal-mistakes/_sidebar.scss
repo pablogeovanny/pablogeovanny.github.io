@@ -290,9 +290,9 @@
 }
 
 .badge-container {
-  width: 300px;  /* Ajusta el ancho del contenedor */
-  height: auto;  /* Mantiene la proporción original del contenido */
-  /*transform: scale(1.5);  /* Ajusta la escala del contenido del contenedor */
+  /*width: 300px;  /* Ajusta el ancho del contenedor */
+  /*height: auto;  /* Mantiene la proporción original del contenido */
+  transform: scale(1);  /* Ajusta la escala del contenido del contenedor */
   /*transform-origin: top left;  /* Establece el punto de origen de la escala en la esquina superior izquierda */
 }
 
