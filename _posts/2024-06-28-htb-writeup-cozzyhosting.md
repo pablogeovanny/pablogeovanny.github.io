@@ -7,7 +7,6 @@ classes: wide
 header:
   teaser: /assets/images/CozyHosting.png
   teaser_home_page: true
-  icon: /assets/images/hackthebox.webp
 categories:
   - ctf
   - hackthebox
