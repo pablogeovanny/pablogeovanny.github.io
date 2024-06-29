@@ -11,9 +11,8 @@ categories:
   - ctf
   - hackthebox
 tags:
-  - xss
-  - sqli
   - hash
+  - mysql
 ---
 ![|500](/assets/images/CozyHosting.png)
 ## Puertos
@@ -150,6 +149,7 @@ psql -h 127.0.0.1 -U postgres -d cozyhosting
 ```
 
 Listamos las tablas
+
 ![](/assets/images/Pasted_image_20240628225507.png)
 
 Mostramos el contenido de las columnas de la tabla `user`
