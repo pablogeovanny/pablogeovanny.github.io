@@ -16,8 +16,9 @@ tags:
   - xsrf
 ---
 From description we have the credentials
-samuel/fzghn4lw
+`samuel/fzghn4lw`
 # Scan
+```
 General scan
 PORT      STATE SERVICE REASON
    7   │ 80/tcp    open  http    syn-ack ttl 64
@@ -25,6 +26,7 @@ PORT      STATE SERVICE REASON
    9   │ 53717/tcp open  unknown syn-ack ttl 64
   10   │ 54457/tcp open  unknown syn-ack ttl 64
   11   │ 59781/tcp open  unknown syn-ack ttl 64
+```
 # 80
 ## Focused scan
 ```
@@ -48,30 +50,30 @@ Disallow: /admin/admin.php
 Fuzzing the page we just found `/admin` like above.
 
 ## /admin/admin.php
-![](Pasted%20image%2020240703173824.png)
+![](/assets/images/Pasted%20image%2020240703173824.png)
 We found an admin panel.
 We have more info about us.
 `slamotte	Samuel	Lamotte	slamotte@futuraBI.fr	Collaborator	2019-12-03 17:08:09`
 We don't have permissions to inactive our user
-![](Pasted%20image%2020240703174158.png)
+![](/assets/images/Pasted%20image%2020240703174158.png)
 
 Trying to login using `slamotte` and `fzghn4lw`.
-![](Pasted%20image%2020240703175002.png)
+![](/assets/images/Pasted%20image%2020240703175002.png)
 
 Create a new account.
 And the button is disable, but we can inspect the html code.
-![](Pasted%20image%2020240703175519.png)
+![](/assets/images/Pasted%20image%2020240703175519.png)
 And delete the disable part.
-![](Pasted%20image%2020240703175631.png)
+![](/assets/images/Pasted%20image%2020240703175631.png)
 Now the button is enable and we can create the new account.
-![](Pasted%20image%2020240703175654.png)
+![](/assets/images/Pasted%20image%2020240703175654.png)
 We are in the system with an inactive account.
-![](Pasted%20image%2020240703175913.png)
+![](/assets/images/Pasted%20image%2020240703175913.png)
 
 Trying XSS creating a new test user with the fields. Don't forget able the button.
-![](Pasted%20image%2020240703180410.png)
+![](/assets/images/Pasted%20image%2020240703180410.png)
 Check the admin panel and we have a XSS.
-![](Pasted%20image%2020240703180550.png)
+![](/assets/images/Pasted%20image%2020240703180550.png)
 # XSS
 To exploit this XSS we need the interaction of a some user, to check if some user is checking the admin panel.
 Create a new user with this code on the two last fields.
@@ -100,7 +102,7 @@ We got some cookies, one of them is the admin account, but if use that cookie, w
 # XSRF
 Activate account
 Trying another way, if we try to activate the account we have.
-![](Pasted%20image%2020240704171243.png)
+![](/assets/images/Pasted%20image%2020240704171243.png)
 
 Now we know that the admin is constantly visiting the admin panel, so we can set the XSS to the user make a request to the url above.
 ```js
@@ -109,17 +111,17 @@ request.open('GET', 'http://192.168.122.204/admin/admin.php?id=11&status=active'
 request.send();
 ```
 Now we start the python server again ans wait. After a while we can see that the admin make the request and our account should be activate.
-![](Pasted%20image%2020240704171856.png)
+![](/assets/images/Pasted%20image%2020240704171856.png)
 
 After login in, in the expense reports, we see the report and now submit it.
-![](Pasted%20image%2020240704172227.png)
+![](/assets/images/Pasted%20image%2020240704172227.png)
 Some has to approve our report, and we see in the profile settings that Manen RIviere is our Manager.
-![](Pasted%20image%2020240704172450.png)
+![](/assets/images/Pasted%20image%2020240704172450.png)
 We supposs to Manon has an panel to approve our report, so we'll try to get the Manon cookie sending an js in the message field. Again listen on python server.
-![](Screenshot_20240704_181923.png)
+![](/assets/images/Screenshot_20240704_181923.png)
 We have a few cookies, one of them is the Manager cookie.
 
-![](Screenshot_20240704_182401.png)
+![](/assets/images/Screenshot_20240704_182401.png)
 Now validate the report. On the green button.
 
 We need that the financial person approve the payment
@@ -127,7 +129,7 @@ in the rennes page we will try sqli.
 
 # SQLi
 We break the query adding this.
-![](Screenshot_20240704_184024.png)
+![](/assets/images/Screenshot_20240704_184024.png)
 Now get the information from db
 ## DB names
 information_schema,myexpense,mysql,performance_schema
@@ -159,6 +161,7 @@ test2:088e03d5b2537942a15e4842d27eb49d
 Checking the admin panel again to see all accounts, we are interested on the `Finalcial approvers` accounts and we will try to crack the passwords of them.
 
 `afoulon	Aristide	Foulon	afoulon@futuraBI.fr	Financial approver	2019-12-03 17:08:09`
+
 `pbaudouin	Paul	Baudouin	pbaudouin@futuraBI.fr	Financial approver	2019-12-03 17:08:09`
 
 # Cracking hashes
@@ -168,8 +171,8 @@ afoulon:wq6hblv3
 pbaudouin:HackMe
 
 Login in like `afoulon` and he don't have our report. But `pbaudouin` has it.
-![](Screenshot_20240704_205514.png)
+![](/assets/images/Screenshot_20240704_205514.png)
 
 # Flag
 Login as Samuel and get the flag.
-![](Screenshot_20240704_205739.png)
+![](/assets/images/Screenshot_20240704_205739.png)
