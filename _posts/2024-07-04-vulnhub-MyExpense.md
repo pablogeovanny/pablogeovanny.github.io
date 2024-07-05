@@ -50,29 +50,43 @@ Disallow: /admin/admin.php
 Fuzzing the page we just found `/admin` like above.
 
 ## /admin/admin.php
+
 ![](/assets/images/Pasted%20image%2020240703173824.png)
+
 We found an admin panel.
 We have more info about us.
 `slamotte	Samuel	Lamotte	slamotte@futuraBI.fr	Collaborator	2019-12-03 17:08:09`
 We don't have permissions to inactive our user
+
 ![](/assets/images/Pasted%20image%2020240703174158.png)
 
 Trying to login using `slamotte` and `fzghn4lw`.
+
 ![](/assets/images/Pasted%20image%2020240703175002.png)
 
 Create a new account.
 And the button is disable, but we can inspect the html code.
+
 ![](/assets/images/Pasted%20image%2020240703175519.png)
+
 And delete the disable part.
+
 ![](/assets/images/Pasted%20image%2020240703175631.png)
+
 Now the button is enable and we can create the new account.
+
 ![](/assets/images/Pasted%20image%2020240703175654.png)
+
 We are in the system with an inactive account.
+
 ![](/assets/images/Pasted%20image%2020240703175913.png)
 
 Trying XSS creating a new test user with the fields. Don't forget able the button.
+
 ![](/assets/images/Pasted%20image%2020240703180410.png)
+
 Check the admin panel and we have a XSS.
+
 ![](/assets/images/Pasted%20image%2020240703180550.png)
 # XSS
 To exploit this XSS we need the interaction of a some user, to check if some user is checking the admin panel.
@@ -102,6 +116,7 @@ We got some cookies, one of them is the admin account, but if use that cookie, w
 # XSRF
 Activate account
 Trying another way, if we try to activate the account we have.
+
 ![](/assets/images/Pasted%20image%2020240704171243.png)
 
 Now we know that the admin is constantly visiting the admin panel, so we can set the XSS to the user make a request to the url above.
@@ -111,17 +126,22 @@ request.open('GET', 'http://192.168.122.204/admin/admin.php?id=11&status=active'
 request.send();
 ```
 Now we start the python server again ans wait. After a while we can see that the admin make the request and our account should be activate.
+
 ![](/assets/images/Pasted%20image%2020240704171856.png)
 
 After login in, in the expense reports, we see the report and now submit it.
+
 ![](/assets/images/Pasted%20image%2020240704172227.png)
 Some has to approve our report, and we see in the profile settings that Manen RIviere is our Manager.
+
 ![](/assets/images/Pasted%20image%2020240704172450.png)
 We supposs to Manon has an panel to approve our report, so we'll try to get the Manon cookie sending an js in the message field. Again listen on python server.
+
 ![](/assets/images/Screenshot_20240704_181923.png)
 We have a few cookies, one of them is the Manager cookie.
 
 ![](/assets/images/Screenshot_20240704_182401.png)
+
 Now validate the report. On the green button.
 
 We need that the financial person approve the payment
@@ -129,6 +149,7 @@ in the rennes page we will try sqli.
 
 # SQLi
 We break the query adding this.
+
 ![](/assets/images/Screenshot_20240704_184024.png)
 Now get the information from db
 ## DB names
@@ -171,8 +192,10 @@ afoulon:wq6hblv3
 pbaudouin:HackMe
 
 Login in like `afoulon` and he don't have our report. But `pbaudouin` has it.
+
 ![](/assets/images/Screenshot_20240704_205514.png)
 
 # Flag
 Login as Samuel and get the flag.
+
 ![](/assets/images/Screenshot_20240704_205739.png)
