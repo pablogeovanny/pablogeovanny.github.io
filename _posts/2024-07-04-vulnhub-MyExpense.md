@@ -56,7 +56,7 @@ Fuzzing the page we just found `/admin` like above.
 We found an admin panel.
 We have more info about us.
 `slamotte	Samuel	Lamotte	slamotte@futuraBI.fr	Collaborator	2019-12-03 17:08:09`
-We don't have permissions to inactive our user
+We don't have permissions to active our user.
 
 ![](/assets/images/Pasted%20image%2020240703174158.png)
 
@@ -138,6 +138,7 @@ Some has to approve our report, and we see in the profile settings that Manen RI
 We supposs to Manon has an panel to approve our report, so we'll try to get the Manon cookie sending an js in the message field. Again listen on python server.
 
 ![](/assets/images/Screenshot_20240704_181923.png)
+
 We have a few cookies, one of them is the Manager cookie.
 
 ![](/assets/images/Screenshot_20240704_182401.png)
@@ -151,6 +152,7 @@ in the rennes page we will try sqli.
 We break the query adding this.
 
 ![](/assets/images/Screenshot_20240704_184024.png)
+
 Now get the information from db
 ## DB names
 information_schema,myexpense,mysql,performance_schema
