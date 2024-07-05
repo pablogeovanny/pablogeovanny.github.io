@@ -20,22 +20,19 @@
             }
           },
           {
-            "id": "85ffde9bccfdf7b6",
+            "id": "d26fac9404c1bac1",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
-            }
-          },
-          {
-            "id": "4d38ecefd9850d9c",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "_posts/2024-07-04-vulnhub-MyExpense.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -101,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+                "file": "_posts/2024-07-04-vulnhub-MyExpense.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+                "file": "_posts/2024-07-04-vulnhub-MyExpense.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -141,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "_posts/2024-06-28-htb-writeup-cozzyhosting.md"
+                "file": "_posts/2024-07-04-vulnhub-MyExpense.md"
               }
             }
           }
@@ -162,12 +159,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a3f90bb9b3d1debc",
+  "active": "d26fac9404c1bac1",
   "lastOpenFiles": [
+    "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
+    "_posts/2024-07-04-vulnhub-MyExpense.md",
+    "assets/images/vulnhub.png",
     "_posts/2021-05-22-htb-writeup-delivery.md",
     "_posts/2019-06-29-htb-writeup-netmon.md",
     "_posts/2019-07-06-htb-writeup-hackback.md",
-    "_posts/2024-06-28-htb-writeup-cozzyhosting.md",
     "assets/images/Pasted_image_20240628225608.png",
     "assets/images/Pasted_image_20240628225553.png",
     "assets/images/Pasted_image_20240628225543.png",
@@ -177,7 +176,6 @@
     "assets/images/Pasted_image_20240628225430.png",
     "assets/images/Pasted_image_20240628225405.png",
     "assets/images/Pasted_image_20240628225347.png",
-    "assets/images/Pasted_image_20240628225329.png",
     "_posts/2019-07-13-htb-writeup-friendzone.md",
     "_posts/2018-12-12-custom-crypter.md",
     "_posts/2020-01-25-htb-writeup-ai.md"
